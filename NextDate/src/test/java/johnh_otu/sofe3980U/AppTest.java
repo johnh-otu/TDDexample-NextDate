@@ -1,4 +1,4 @@
-package johnh-otu.sofe3980U;
+package johnh_otu.sofe3980U;
 
 import static org.junit.Assert.assertTrue;
 
