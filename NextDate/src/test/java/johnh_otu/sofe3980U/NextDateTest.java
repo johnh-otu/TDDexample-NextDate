@@ -6,25 +6,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class NextDateTest {
-
-    static String daymsg = "Invalid: day must be in [1,lastDayOfMonth]";
-    static String monmsg = "Invalid: month must be in [1,12]";
-    static String yearmsg = "Invalid: year must be in [1812,2212]";
-
     @Test @Tag("invalid_inputs")
     public void negativeInputs() {
         assertAll("negative_inputs",
                 () -> {
                     Exception e = assertThrows(IllegalArgumentException.class, () -> NextDate.nextDate(-3, 2, 2023));
-                    assertEquals(daymsg, e.getMessage());
+                    assertEquals(ExceptionMessages.getDay_message(), e.getMessage());
                 },
                 () -> {
                     Exception e = assertThrows(IllegalArgumentException.class, () -> NextDate.nextDate(19, -4, 2023));
-                    assertEquals(monmsg, e.getMessage());
+                    assertEquals(ExceptionMessages.getMonth_message(), e.getMessage());
                 },
                 () -> {
                     Exception e = assertThrows(IllegalArgumentException.class, () -> NextDate.nextDate(19, 2, -5));
-                    assertEquals(yearmsg, e.getMessage());
+                    assertEquals(ExceptionMessages.getYear_message(), e.getMessage());
                 }
         );
     }
@@ -34,15 +29,15 @@ public class NextDateTest {
         assertAll("zero_inputs",
                 () -> {
                     Exception e = assertThrows(IllegalArgumentException.class, () -> NextDate.nextDate(0, 2, 2023));
-                    assertEquals(daymsg, e.getMessage());
+                    assertEquals(ExceptionMessages.getDay_message(), e.getMessage());
                 },
                 () -> {
                     Exception e = assertThrows(IllegalArgumentException.class, () -> NextDate.nextDate(19, 0, 2023));
-                    assertEquals(monmsg, e.getMessage());
+                    assertEquals(ExceptionMessages.getMonth_message(), e.getMessage());
                 },
                 () -> {
                     Exception e = assertThrows(IllegalArgumentException.class, () -> NextDate.nextDate(19, 2, 0));
-                    assertEquals(yearmsg, e.getMessage());
+                    assertEquals(ExceptionMessages.getYear_message(), e.getMessage());
                 }
         );
     }
@@ -52,15 +47,15 @@ public class NextDateTest {
         assertAll("pos_invalid_inputs",
                 () -> {
                     Exception e = assertThrows(IllegalArgumentException.class, () -> NextDate.nextDate(29, 2, 2023));
-                    assertEquals(daymsg, e.getMessage());
+                    assertEquals(ExceptionMessages.getDay_message(), e.getMessage());
                 },
                 () -> {
                     Exception e = assertThrows(IllegalArgumentException.class, () -> NextDate.nextDate(19, 15, 2023));
-                    assertEquals(monmsg, e.getMessage());
+                    assertEquals(ExceptionMessages.getMonth_message(), e.getMessage());
                 },
                 () -> {
                     Exception e = assertThrows(IllegalArgumentException.class, () -> NextDate.nextDate(19, 2, 2213));
-                    assertEquals(yearmsg, e.getMessage());
+                    assertEquals(ExceptionMessages.getYear_message(), e.getMessage());
                 }
         );
     }

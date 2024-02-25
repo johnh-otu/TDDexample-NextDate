@@ -2,24 +2,20 @@ package johnh_otu.sofe3980U;
 
 public class NextDate {
 
-    static String daymsg = "Invalid: day must be in [1,lastDayOfMonth]";
-    static String monmsg = "Invalid: month must be in [1,12]";
-    static String yearmsg = "Invalid: year must be in [1812,2212]";
-
     public static int[] nextDate(int Day, int Month, int Year) throws IllegalArgumentException {
 
         //check for invalid month/year
         if (Year < 1812 || Year > 2212)
-            throw new IllegalArgumentException(yearmsg);
+            throw new IllegalArgumentException(ExceptionMessages.getYear_message());
         if (Month < 1 || Month > 12)
-            throw new IllegalArgumentException(monmsg);
+            throw new IllegalArgumentException(ExceptionMessages.getMonth_message());
 
         //get end of month
         int end_of_month = endOfMonth(Month, Year);
 
         //check for invalid day
         if (Day < 1 || Day > end_of_month)
-            throw new IllegalArgumentException(daymsg);
+            throw new IllegalArgumentException(ExceptionMessages.getDay_message());
 
         //initialize output
         int[] out = new int[3];
