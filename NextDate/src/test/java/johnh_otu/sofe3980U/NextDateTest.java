@@ -1,11 +1,5 @@
 package johnh_otu.sofe3980U;
 
-import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Stream;
-import java.util.stream.IntStream;
-import java.util.Iterator;
-
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,12 +10,6 @@ public class NextDateTest {
     static String daymsg = "Invalid: day must be in [1,lastDayOfMonth]";
     static String monmsg = "Invalid: month must be in [1,12]";
     static String yearmsg = "Invalid: year must be in [1812,2212]";
-
-    @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
-    }
 
     @Test @Tag("invalid_inputs")
     public void negativeInputs() {
